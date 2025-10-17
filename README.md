@@ -2,9 +2,8 @@
 
 > Modern, production-ready QR code generator built with Next.js, AWS Lambda, and Terraform
 
-![Demo](screenshot-placeholder.png)
 
-🔗 **Live Demo:** https://your-vercel-url.vercel.app
+🔗 **Live Demo:** https://lambda-qr.vercel.app
 
 ---
 
