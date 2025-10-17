@@ -1,11 +1,11 @@
 output "api_gateway_url" {
   description = "API Gateway endpoint URL"
-  value       = "https://${aws_api_gateway_rest_api.qr_api.id}.execute-api.${var.aws_region}.amazonaws.com/${aws_api_gateway_deployment.qr_api.stage_name}"
+  value       = "https://${aws_api_gateway_rest_api.qr_api.id}.execute-api.${var.aws_region}.amazonaws.com/${var.api_stage_name}"
 }
 
 output "generate_qr_endpoint" {
   description = "Generate QR code endpoint URL"
-  value       = "https://${aws_api_gateway_rest_api.qr_api.id}.execute-api.${var.aws_region}.amazonaws.com/${aws_api_gateway_deployment.qr_api.stage_name}/generate"
+  value       = "https://${aws_api_gateway_rest_api.qr_api.id}.execute-api.${var.aws_region}.amazonaws.com/${var.api_stage_name}/generate"
 }
 
 output "s3_bucket_name" {

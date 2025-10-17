@@ -139,7 +139,6 @@ resource "aws_lambda_function" "qr_generator" {
   environment {
     variables = {
       BUCKET_NAME = aws_s3_bucket.qr_codes.bucket
-      AWS_REGION  = var.aws_region
     }
   }
 }
@@ -225,7 +224,7 @@ resource "aws_api_gateway_integration_response" "generate_options" {
 
 resource "aws_api_gateway_deployment" "qr_api" {
   rest_api_id = aws_api_gateway_rest_api.qr_api.id
-  stage_name  = var.api_stage_name
+  
 
   depends_on = [
     aws_api_gateway_integration.generate_post,
