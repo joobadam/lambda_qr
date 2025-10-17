@@ -1,0 +1,39 @@
+{
+  "name": "lambda-qr-generator",
+  "version": "1.0.0",
+  "description": "Serverless QR Code Generator with AWS Lambda, Next.js, and Terraform",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run dev:frontend",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "deploy": "npm run deploy:terraform",
+    "deploy:terraform": "cd terraform && terraform apply",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "cd backend && npm test",
+    "test:frontend": "cd frontend && npm test"
+  },
+  "keywords": [
+    "serverless",
+    "qr-code",
+    "aws-lambda",
+    "nextjs",
+    "terraform",
+    "typescript"
+  ],
+  "author": "Adam",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.3",
+    "@aws-sdk/client-s3": "^3.0.0",
+    "uuid": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

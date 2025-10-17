@@ -1,0 +1,17 @@
+{
+  "name": "lambda-qr-backend",
+  "version": "1.0.0",
+  "description": "Backend Lambda functions for QR Code Generator",
+  "main": "index.js",
+  "scripts": {
+    "package": "zip -r lambda-qr-backend.zip . -x node_modules/\\* .git/\\* *.zip"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.3",
+    "@aws-sdk/client-s3": "^3.0.0",
+    "uuid": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
