@@ -1,9 +1,23 @@
+# Dependencies
 node_modules/
-.env
-.env.local
+
+# Terraform
 terraform/.terraform/
 terraform/*.tfstate
 terraform/*.tfstate.backup
 terraform/lambda.zip
-.DS_Store
+
+# Environment
+.env
+.env.local
+frontend/.env.local
+# Keep .env.example files
+!.env.example
+!frontend/.env.example
+
+# Logs
 *.log
+npm-debug.log*
+
+# OS
+.DS_Store
