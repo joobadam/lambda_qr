@@ -22,28 +22,11 @@ export function QRForm() {
     setError("")
     setQrResult(null)
 
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL
 
-    
-    if (!apiUrl || apiUrl === "undefined" || apiUrl === "http://localhost:3000") {
-      console.log("Using mock data for testing")
-
-   
-      await new Promise((resolve) => setTimeout(resolve, 1500))
-
- 
-      const mockResult = {
-        success: true,
-        qrCodeUrl: `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(text)}`,
-        text: text,
-        size: size,
-        errorCorrectionLevel: errorCorrectionLevel,
-        timestamp: new Date().toISOString(),
-        filename: `qr-${Date.now()}.png`,
-      }
-
-      setQrResult(mockResult)
-      toast.success("QR Code generated successfully!")
+    if (!apiUrl || apiUrl === "undefined") {
+      setError("API URL is not configured. Please set NEXT_PUBLIC_API_URL environment variable.")
+      toast.error("API URL is not configured")
       setLoading(false)
       return
     }

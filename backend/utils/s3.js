@@ -27,7 +27,6 @@ const uploadQRCodeToS3 = async (qrCodeBuffer, filename, qrMetadata = {}) => {
         Key: filename,
         Body: qrCodeBuffer,
         ContentType: 'image/png',
-        ACL: 'public-read',
         Metadata: metadata
     });
 
