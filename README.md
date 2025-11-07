@@ -2,12 +2,43 @@
 
 > Modern, production-ready QR code generator built with Next.js, AWS Lambda, and Terraform
 
+[![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/)
+[![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)](https://www.terraform.io/)
+[![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-🔗 **Live Demo:** https://lambda-qr.vercel.app
+🔗 **Live Demo:** [https://lambda-qr.vercel.app](https://lambda-qr.vercel.app)
 
 ---
 
-## ✨ Features
+## 📋 Table of Contents
+
+- [About The Project](#-about-the-project)
+  - [Features](#-features)
+  - [Architecture](#-architecture)
+  - [Tech Stack](#-tech-stack)
+- [Getting Started](#-getting-started)
+  - [Prerequisites](#-prerequisites)
+  - [Quick Start](#-quick-start)
+  - [Environment Variables](#-environment-variables)
+- [Testing](#-testing)
+- [Cost Estimation](#-cost-estimation)
+- [Cleanup](#-cleanup)
+- [Project Structure](#-project-structure)
+- [What This Project Demonstrates](#-what-this-project-demonstrates)
+- [Security](#-security)
+- [Future Enhancements](#-future-enhancements)
+- [License](#-license)
+- [Author](#-author)
+
+---
+
+## 🎯 About The Project
+
+Modern, production-ready QR code generator built with Next.js, AWS Lambda, and Terraform. This serverless application demonstrates full-stack development with cloud infrastructure, providing instant QR code generation with automatic storage and sharing capabilities.
+
+### ✨ Features
 
 - ⚡ **Instant QR Generation** - Generate QR codes in milliseconds
 - 🎨 **Customizable** - Adjust size (200-500px) and error correction level
@@ -16,9 +47,7 @@
 - 📥 **Download & Share** - Download PNG or copy direct image URL
 - 🌐 **Serverless** - Zero maintenance, infinite scalability
 
----
-
-## 🏗️ Architecture
+### 🏗️ Architecture
 
 ```
 User/Browser
@@ -32,50 +61,56 @@ Lambda Function (Node.js 20.x)
 S3 Bucket (QR Images)
 ```
 
----
+### 🛠️ Tech Stack
 
-## 🛠️ Tech Stack
+| Layer | Technology |
+|-------|------------|
+| 🎨 **Frontend** | Next.js 15, React 19, Tailwind CSS v4, shadcn/ui, Lucide React |
+| ⚡ **Backend** | AWS Lambda (Node.js 20.x), API Gateway, S3, qrcode library |
+| 🏗️ **Infrastructure** | Terraform, GitHub, Vercel |
 
-### Frontend
+**Frontend:**
 - **Next.js 15** - React framework with App Router
 - **React 19** - UI library
 - **Tailwind CSS v4** - Utility-first styling
 - **shadcn/ui** - Component library
 - **Lucide React** - Icon system
 
-### Backend
+**Backend:**
 - **AWS Lambda** - Serverless compute (Node.js 20.x)
 - **API Gateway** - RESTful API endpoint
 - **S3** - Object storage for QR images
 - **qrcode** - QR code generation library
 
-### Infrastructure
+**Infrastructure:**
 - **Terraform** - Infrastructure as Code
 - **GitHub** - Version control
 - **Vercel** - Frontend hosting
 
 ---
 
-## 📋 Prerequisites
+## 🚀 Getting Started
 
-- **AWS Account** - Free tier eligible
-- **Terraform** >= 1.5
-- **Node.js** >= 20.x
-- **Git**
-- **Vercel Account** (optional, for frontend hosting)
+### 📦 Prerequisites
 
----
+Before you begin, ensure you have the following:
 
-## 🚀 Quick Start
+- ☁️ **AWS Account** - Free tier eligible
+- 🛠️ **Terraform** >= 1.5
+- 📦 **Node.js** >= 20.x
+- 🔀 **Git**
+- 🌐 **Vercel Account** (optional, for frontend hosting)
 
-### 1. Clone Repository
+### 🚀 Quick Start
+
+#### 1️⃣ Clone Repository
 
 ```bash
 git clone https://github.com/joobadam/lambda_qr.git
 cd lambda_qr
 ```
 
-### 2. Backend Deployment (AWS)
+#### 2️⃣ Backend Deployment (AWS)
 
 ```bash
 # Install backend dependencies
@@ -93,7 +128,7 @@ terraform apply
 # Example: https://xxxxx.execute-api.eu-central-1.amazonaws.com/prod
 ```
 
-### 3. Frontend Setup
+#### 3️⃣ Frontend Setup
 
 ```bash
 cd frontend
@@ -112,17 +147,15 @@ npm start
 
 Open http://localhost:3000
 
----
+### 🌐 Environment Variables
 
-## 🌐 Environment Variables
-
-### Frontend (.env.local)
+**Frontend (`.env.local`):**
 
 ```env
 NEXT_PUBLIC_API_URL=https://your-api-id.execute-api.eu-central-1.amazonaws.com/prod
 ```
 
-**Note:** `.env.local` is gitignored. Copy from `.env.example` and add your API URL.
+> 💡 **Note**: `.env.local` is gitignored. Copy from `.env.example` and add your API URL.
 
 ---
 
@@ -141,6 +174,7 @@ curl -X POST https://your-api-gateway-url/prod/generate \
 ```
 
 **Expected Response:**
+
 ```json
 {
   "success": true,
@@ -165,9 +199,9 @@ curl -X POST https://your-api-gateway-url/prod/generate \
 ## 💰 Cost Estimation
 
 **AWS Free Tier:**
-- **Lambda:** 1M requests/month free
-- **API Gateway:** 1M API calls/month free (first 12 months)
-- **S3:** 5GB storage + 20k GET requests free
+- ⚡ **Lambda:** 1M requests/month free
+- 🌐 **API Gateway:** 1M API calls/month free (first 12 months)
+- 🪣 **S3:** 5GB storage + 20k GET requests free
 
 **Expected Monthly Cost:**
 - Within free tier limits: **$0/month**
@@ -187,7 +221,7 @@ cd terraform
 terraform destroy
 ```
 
-**Warning:** This will delete the S3 bucket and all QR codes stored in it.
+> ⚠️ **Warning**: This will delete the S3 bucket and all QR codes stored in it.
 
 ---
 
@@ -220,6 +254,7 @@ lambda_qr/
 ## 🎓 What This Project Demonstrates
 
 ### DevOps Skills
+
 - ✅ **Infrastructure as Code** - Terraform for reproducible infrastructure
 - ✅ **Serverless Architecture** - AWS Lambda, API Gateway, S3
 - ✅ **Cloud Services** - AWS resource provisioning and management
@@ -227,6 +262,7 @@ lambda_qr/
 - ✅ **Security Best Practices** - IAM roles, least privilege, CORS configuration
 
 ### Development Skills
+
 - ✅ **Modern Frontend** - Next.js 15 with App Router
 - ✅ **API Integration** - RESTful API consumption
 - ✅ **Responsive Design** - Mobile-first approach
@@ -237,10 +273,12 @@ lambda_qr/
 
 ## 🔒 Security
 
-- **IAM Roles:** Lambda has minimal S3 permissions (PutObject only)
-- **CORS:** Configured for frontend origin
-- **Environment Variables:** Sensitive data in `.env.local` (gitignored)
-- **Public S3 Access:** Only for QR images (read-only via bucket policy)
+This project implements several security best practices:
+
+- ✅ **IAM Roles** - Lambda has minimal S3 permissions (PutObject only)
+- ✅ **CORS** - Configured for frontend origin
+- ✅ **Environment Variables** - Sensitive data in `.env.local` (gitignored)
+- ✅ **Public S3 Access** - Only for QR images (read-only via bucket policy)
 
 ---
 
@@ -257,15 +295,15 @@ lambda_qr/
 
 ## 📄 License
 
-MIT License - See [LICENSE](LICENSE) file for details
+Distributed under the MIT License. See `LICENSE` file for more information.
 
 ---
 
 ## 👤 Author
 
 **Adam Juhasz**
-- GitHub: [@joobadam](https://github.com/joobadam)
-- Portfolio: [adamjuhasz.com](https://www.adamjuhasz.com)
+- 🐙 GitHub: [@joobadam](https://github.com/joobadam)
+- 🌐 Portfolio: [adamjuhasz.com](https://www.adamjuhasz.com)
 
 ---
 
@@ -274,5 +312,7 @@ MIT License - See [LICENSE](LICENSE) file for details
 Built with modern tools and AWS services as a portfolio project demonstrating full-stack serverless development and DevOps practices.
 
 ---
+
+<p align="right">(<a href="#-serverless-qr-code-generator">back to top</a>)</p>
 
 **⭐ If you find this project useful, please consider giving it a star on GitHub!**
